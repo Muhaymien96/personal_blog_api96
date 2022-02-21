@@ -33,7 +33,7 @@ router.patch("/", async (req, res, next) => {
     try {
       const access_token = jwt.sign(
         JSON.stringify(user),
-        process.env.JWT_SECRET_KEY
+        process.env.ACCESS_TOKEN_SECRET
       );
       res.status(201).json({ jwt: access_token });
     } catch (error) {
@@ -66,7 +66,7 @@ router.post("/", async (req, res, next) => {
     try {
       const access_token = jwt.sign(
         JSON.stringify(newUser),
-        process.env.JWT_SECRET_KEY
+        process.env.ACCESS_TOKEN_SECRET
       );
       res.status(201).json({ jwt: access_token });
     } catch (error) {
